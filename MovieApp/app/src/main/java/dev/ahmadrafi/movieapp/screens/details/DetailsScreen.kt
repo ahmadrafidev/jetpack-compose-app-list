@@ -50,7 +50,7 @@ fun DetailsScreen(navController: NavController,
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top) {
                 MovieRow(movie = newMovieList.first())
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(10.dp))
                 Divider()
                 Text(text = "Movie Images")
                 HorizontalScrollableImageView(newMovieList)

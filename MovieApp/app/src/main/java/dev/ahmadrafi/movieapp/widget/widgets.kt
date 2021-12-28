@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
+import coil.transform.CircleCropTransformation
 import dev.ahmadrafi.movieapp.model.Movie
 import dev.ahmadrafi.movieapp.model.getMovies
 
@@ -57,7 +58,12 @@ fun MovieRow(movie: Movie = getMovies()[0], onItemClick: (String) -> Unit = {}) 
                 elevation = 4.dp
             ) {
 //                Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Movie Image")
-                Image(painter = rememberImagePainter(data = movie.images[0]), contentDescription = "image poster")
+                Image(painter = rememberImagePainter(data = movie.images[0],
+                    builder = {
+                        crossfade(true)
+                        transformations(CircleCropTransformation())
+                    }),
+                    contentDescription = "image poster")
             }
             Column(
                 modifier = Modifier.padding(4.dp)
