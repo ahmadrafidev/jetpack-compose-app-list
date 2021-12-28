@@ -1,6 +1,7 @@
 package dev.ahmadrafi.movieapp.screens.home
 
 import android.util.Log
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,9 +17,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import dev.ahmadrafi.movieapp.MoviewRow
+import dev.ahmadrafi.movieapp.model.Movie
+import dev.ahmadrafi.movieapp.model.getMovies
 import dev.ahmadrafi.movieapp.navigations.MovieScreen
+import dev.ahmadrafi.movieapp.widget.MovieRow
 
+@ExperimentalAnimationApi
 @Composable
 fun HomeScreen(navController: NavController){
     Scaffold(
@@ -40,18 +44,17 @@ fun HomeScreen(navController: NavController){
     }
 }
 
+@ExperimentalAnimationApi
 @Composable
 fun MainContent(
     navController: NavController,
-    movieList: List<String> = listOf(
-    "Avatar", "300", "More Life", "Baby Gone", "Waves", "Harry Potter"
-)){
+    movieList: List<Movie> = getMovies()){
     Column(
         modifier = Modifier.padding(12.dp)
     ) {
         LazyColumn {
             items(items = movieList) {
-                MoviewRow(movie = it) {
+                MovieRow(movie = it) {
                         movie -> navController.navigate(route = MovieScreen.DetailsScreen.name+"/$movie")
                 }
             }
