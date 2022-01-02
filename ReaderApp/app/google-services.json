@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "548932574899",
+    "project_id": "reader-app-d3dd8",
+    "storage_bucket": "reader-app-d3dd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548932574899:android:1ca247451a65f985621ac6",
+        "android_client_info": {
+          "package_name": "dev.ahmadrafi.readerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548932574899-k6srlqe2hfdcne2pa8ogbsbejt10uprq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVPkJJKzEeoKfQCe9vtWEmoOtUO0Ifw7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548932574899-k6srlqe2hfdcne2pa8ogbsbejt10uprq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
