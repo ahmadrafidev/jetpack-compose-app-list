@@ -22,15 +22,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import dev.ahmadrafi.readerapp.R
 import dev.ahmadrafi.readerapp.components.EmailInput
 import dev.ahmadrafi.readerapp.components.PasswordInput
 import dev.ahmadrafi.readerapp.components.ReaderLogo
+import dev.ahmadrafi.readerapp.navigation.ReaderScreens
 
 @ExperimentalComposeUiApi
 @Composable
-fun ReaderLoginScreen(navController: NavController) {
+fun ReaderLoginScreen(navController: NavController, viewModel: LoginScreenViewModel = viewModel()) {
     val showLoginForm = rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -38,11 +41,15 @@ fun ReaderLoginScreen(navController: NavController) {
             verticalArrangement = Arrangement.Top) {
             ReaderLogo()
             if (showLoginForm.value) UserForm(loading = false, isCreateAccount = false){ email, password ->
-                //Todo FB login
+                viewModel.signInWithEmailAndPassword(email, password) {
+                    navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                }
             }
             else {
                 UserForm(loading = false, isCreateAccount = true){ email, password ->
-                    //Todo: create FB account
+                   viewModel.createUserWithEmailAndPassword(email, password) {
+                       navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                   }
                 }
             }
 
