@@ -1,4 +1,4 @@
-package dev.ahmadrafi.weatherforecastapp.ui.theme
+package dev.ahmadrafi.weatherforecast.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

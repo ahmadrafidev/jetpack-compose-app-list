@@ -1,4 +1,4 @@
-package dev.ahmadrafi.weatherforecastapp
+package dev.ahmadrafi.weatherforecast
 
 import org.junit.Test
 
